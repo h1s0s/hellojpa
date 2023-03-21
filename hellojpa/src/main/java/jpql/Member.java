@@ -1,6 +1,7 @@
 package jpql;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlEnum;
 
 @Entity
 public class Member {
@@ -13,6 +14,8 @@ public class Member {
 	@Embedded
 	private Address address;
 
+	@Enumerated(EnumType.STRING)//디폴트 숫자임
+	private MemberType memberType;
 	@ManyToOne
 	@JoinColumn(name = "TEAM_ID")
 	private Team team;
