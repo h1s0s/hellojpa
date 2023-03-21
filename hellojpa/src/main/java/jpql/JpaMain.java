@@ -42,6 +42,8 @@ public class JpaMain {
 
             Query query2 = em.createQuery("select m.username, m.age from Member m");
 
+            //주의, 조회하는 시점부터 영속성 컨테이너에서 관리함
+
             ///////////////
             //파라미터 바인딩
             ///////////////
@@ -54,7 +56,6 @@ public class JpaMain {
                                     .setParameter("username", "member1")//":키값" 에 값 바인딩
                                     .getSingleResult();
             System.out.println("singleResult = " + singleResult);
-
 
             tx.commit();
         } catch (Exception e){

@@ -10,6 +10,9 @@ public class Member {
 	private String username;
 	private int age;
 
+	@Embedded
+	private Address address;
+
 	@ManyToOne
 	@JoinColumn(name = "TEAM_ID")
 	private Team team;
@@ -44,5 +47,13 @@ public class Member {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 }
